@@ -1,4 +1,4 @@
-package com_BinarySearch;
+package com.BinarySearch;
 
 public class FindNthRootOfM {
 	
