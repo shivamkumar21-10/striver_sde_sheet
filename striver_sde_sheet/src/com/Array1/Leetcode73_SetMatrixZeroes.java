@@ -47,9 +47,72 @@ public class Leetcode73_SetMatrixZeroes {
 //	Approach	        Time Complexity	   Space Complexity
 //	Using Extra Set	      O(m × n)	        O(min(m, n))
 
-	// Better
+	//*********************************** Better ************************************
 
 	class Solution2 {
+	    /**
+	     * Intuition:
+	     * ----------
+	     * - The problem requires setting entire rows and columns to zero if any element is `0`.
+	     * - A naive approach would be to iterate through the matrix multiple times, but this is inefficient.
+	     * - Instead, we use two arrays (`row` and `col`) to mark which rows and columns should be zeroed out.
+	     * 
+	     * Observations:
+	     * ------------
+	     * - If `matrix[i][j] == 0`, then the entire row `i` and column `j` must be turned to zero.
+	     * - We can use two separate arrays:
+	     *   - `row[i] = 1` means the `i`-th row should be zeroed.
+	     *   - `col[j] = 1` means the `j`-th column should be zeroed.
+	     * - After marking, we traverse the matrix again and set the marked rows and columns to zero.
+	     * 
+	     * Logic:
+	     * ------
+	     * 1. **Marking Phase:**
+	     *    - Traverse the matrix to find zero elements.
+	     *    - If `matrix[i][j] == 0`, mark `row[i] = 1` and `col[j] = 1`.
+	     * 2. **Zeroing Phase:**
+	     *    - Traverse the matrix again.
+	     *    - If `row[i] == 1` or `col[j] == 1`, set `matrix[i][j] = 0`.
+	     * 
+	     * Dry Run:
+	     * --------
+	     * Input:
+	     * ```
+	     * matrix = [
+	     *   [1, 2, 3],
+	     *   [4, 0, 6],
+	     *   [7, 8, 9]
+	     * ]
+	     * ```
+	     * 
+	     * Marking Phase:
+	     * - `matrix[1][1] == 0` → Mark `row[1] = 1`, `col[1] = 1`
+	     * 
+	     * Arrays after marking:
+	     * - `row = [0, 1, 0]`
+	     * - `col = [0, 1, 0]`
+	     * 
+	     * Zeroing Phase:
+	     * - Set elements in `row[1]` and `col[1]` to zero.
+	     * 
+	     * Output:
+	     * ```
+	     * matrix = [
+	     *   [1, 0, 3],
+	     *   [0, 0, 0],
+	     *   [7, 0, 9]
+	     * ]
+	     * ```
+	     * 
+	     * Time Complexity:
+	     * ----------------
+	     * - `O(M * N)`, since we traverse the matrix twice.
+	     * 
+	     * Space Complexity:
+	     * -----------------
+	     * - `O(M + N)`, because we use two extra arrays for rows and columns.
+	     */
+
 	    public void setZeroes(int[][] matrix) {
 	        int m = matrix.length;    // Number of rows
 	        int n = matrix[0].length; // Number of columns
@@ -77,8 +140,9 @@ public class Leetcode73_SetMatrixZeroes {
 	        }
 	    }
 	}
+
 	
-	//optimal - without extra space
+	//***************************** optimal - without extra space ******************************************
 //	Marking rows and columns using the first row & first column:
 //
 //		Instead of separate row[] and col[] arrays, we store row-zero flags in matrix[0][..] and column-zero flags in matrix[..][0].

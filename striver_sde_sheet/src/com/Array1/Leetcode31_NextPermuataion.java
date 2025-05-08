@@ -32,6 +32,66 @@ public class Leetcode31_NextPermuataion {
 	//ab jb dono ko swap krnge to jo uske baad wala hoga mtlb breakpoint idx se array k last tk wo to av v increasing hi h
 	// to usko reverse krnge to wo sort ho jaega to hmko next permutation mil gya
 	
+	
+	/**
+     * Intuition:
+     * ----------
+     * - We need to find the **next lexicographically greater permutation** of an array.
+     * - If no such permutation exists (i.e., the array is sorted in descending order), we return the **smallest permutation** (sorted in ascending order).
+     *
+     * Observations:
+     * ------------
+     * - The next permutation is formed by **modifying the existing sequence minimally** to get the next greater order.
+     * - We must **swap** and **rearrange** elements while keeping changes minimal.
+     *
+     * Logic:
+     * ------
+     * 1. **Find the pivot (breakpoint):**
+     *    - Scan from **right to left** and find the first index `i` where `nums[i] < nums[i+1]`.
+     *    - This index is the **pivot** (i.e., `nums[i]` is the number that needs to be increased).
+     * 2. **Find the successor:**
+     *    - Scan from **right to left** again and find the smallest number **greater than** `nums[i]`.
+     *    - Swap it with `nums[i]`.
+     * 3. **Reverse the suffix:**
+     *    - Reverse the sequence to the right of `nums[i]` to get the **smallest order**.
+     *
+     * Dry Run:
+     * --------
+     * **Input:** [1, 3, 5, 4, 2]
+     *
+     * Step 1: Find the pivot
+     * ----------------------
+     * - Traverse from the right:
+     *   - `5 > 4` (no pivot)
+     *   - `4 > 2` (no pivot)
+     *   - `3 < 5`  ⬅️ **Pivot found at index `1` (value `3`)**
+     *
+     * Step 2: Find the successor
+     * --------------------------
+     * - Scan from the right to find the smallest element **greater than** `3`:
+     *   - `2` (not greater)
+     *   - `4` (greater)  ✅
+     *   - Swap `3` and `4`
+     *
+     * **Array after swap:** [1, 4, 5, 3, 2]
+     *
+     * Step 3: Reverse the suffix
+     * --------------------------
+     * - Reverse elements after index `1`:  
+     *   - Reverse `[5, 3, 2]` → `[2, 3, 5]`
+     *
+     * **Final Output:** [1, 4, 2, 3, 5]  ✅
+     *
+     * Time Complexity:
+     * ----------------
+     * - `O(N)`, where `N` is the length of the array.
+     *
+     * Space Complexity:
+     * -----------------
+     * - `O(1)`, as we modify the array in place.
+     */
+
+	
 	class Solution {
 
 	    // Utility function to reverse a portion of the array from `start` to `end`

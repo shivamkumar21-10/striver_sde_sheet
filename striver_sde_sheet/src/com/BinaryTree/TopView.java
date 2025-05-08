@@ -1,9 +1,10 @@
 package com.BinaryTree;
 import java.util.*;
 public class TopView {
-	import java.util.*;
+
 
 	class Solution {
+		
 	    // A helper class to store a tree node along with its horizontal distance (hd)
 	    static class Pair {
 	        Node node; // The tree node

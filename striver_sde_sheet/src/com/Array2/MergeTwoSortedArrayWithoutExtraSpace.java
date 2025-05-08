@@ -6,7 +6,7 @@ public class MergeTwoSortedArrayWithoutExtraSpace {
 	//Approach 1 - optimal 1
 	
 	//logic 
-	//isme hm ek pointer firse array k last p rakhe h aur second ko dusre array ke firse pe and dono ko compare kr rhe h eg se samajhte h
+	//isme hm ek pointer first array k last p rakhe h aur second ko dusre array ke first pe and dono ko compare kr rhe h eg se samajhte h
 	
 	// nums1 = [1,3,5,7] , nums2 = [0,2,6,8,9]
 	
@@ -17,12 +17,15 @@ public class MergeTwoSortedArrayWithoutExtraSpace {
 	
 	// i=3, j=0
 	//ab 7 bara h 0 se to 0 ko obviously nums1 ka array m rhna chiye to swap kr dnge aur i--; j++ kr dnge
+//	nums1 = [1,3,5,0] , nums2 = [7,2,6,8,9]
 	
 	//i=2, j=1
-	//ab 2 bara h 5 se to 2 ko obviously nums1 ka array m rhna chiye to swap kr dnge aur i--; j++ kr dnge
+	//ab 3 bara h 2 se to 2 ko obviously nums1 ka array m rhna chiye to swap kr dnge aur i--; j++ kr dnge
+//	nums1 = [1,3,2,0] , nums2 = [7,5,6,8,9]
 	
 	//i=1, j=2
 	//3 6 se chota h to swap ni hoga aur aage v check krne ka jrurat ni h kuki dono sorted array h
+//	nums1 = [1,3,2,0] , nums2 = [7,5,6,8,9]
 	
 	//ab dono array ko alag alag sort kr dnge bs output mil jaega
 	

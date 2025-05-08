@@ -47,7 +47,7 @@ public class Leetcode56_MergeIntervals {
 	    }
 	}
 	
-	//optimal
+	//*****************************optimal***********************************************
 
 	class Solution2 {
 	    public int[][] merge(int[][] intervals) {
